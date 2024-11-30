@@ -74,18 +74,22 @@ class CatvtonFluxSampler:
                 "garment": ("IMAGE",),
                 "steps": ("INT", {"default": 30}),
                 "guidance_scale": ("FLOAT", {"default": 30.0}),
-                "seed": ("INT", {"default": 0}),
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
                 "width": ("INT", {"default": 768}),
                 "height": ("INT", {"default": 1024}),
+                "keep_in_GPU": ("BOOLEAN", {"default": False}),
         },
     } 
     
-    def sample(self, CatvtonFluxModel, prompt, image, mask, garment, steps=30, guidance_scale=30.0, seed=-1, width=768, height=1024):
+    def sample(self, CatvtonFluxModel, prompt, image, mask, garment, steps=30, guidance_scale=30.0, seed=-1, width=768, height=1024, keep_in_GPU=False):
         load_device = mm.text_encoder_device()
         offload_device = mm.text_encoder_offload_device()
 
         pipe = CatvtonFluxModel["pipe"]
-        pipe.transformer.to(load_device)
+
+        # check if the model is in the right device
+        if not pipe.transformer.device == load_device:
+            pipe.transformer.to(load_device)
 
         size=(width, height)
 
@@ -119,7 +123,8 @@ class CatvtonFluxSampler:
             prompt=prompt,
         ).images[0]
 
-        pipe.transformer.to(offload_device)
+        if not keep_in_GPU:
+            pipe.transformer.to(offload_device)
 
         # Split and save results
         width = size[0]
