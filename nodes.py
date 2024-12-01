@@ -6,7 +6,7 @@ from torchvision import transforms
 from .pipeline_flux_fill import FluxFillPipeline
 
 import comfy.model_management as mm
-
+from .utils import convert_diffusers_flux_lora
 
 script_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -139,3 +139,67 @@ class CatvtonFluxSampler:
         ).unsqueeze(0)
 
         return (tryon_result, garment_result,)
+
+class LoadCatvtonFluxLoRA:
+    
+    RETURN_TYPES = ("MODEL",)
+    FUNCTION = "load_catvton_flux_lora"
+    CATEGORY = "CatvtonFluxWrapper"
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "MODEL": ("MODEL",),
+        },
+    } 
+    
+    def load_catvton_flux_lora(self, MODEL):
+
+        load_device = mm.text_encoder_device()
+        offload_device = mm.text_encoder_offload_device()
+
+        print("Start loading LoRA weights")
+        state_dict, _ = FluxFillPipeline.lora_state_dict(
+            pretrained_model_name_or_path_or_dict="xiaozaa/catvton-flux-lora-alpha",     ## The tryon Lora weights
+            weight_name="pytorch_lora_weights.safetensors",
+            return_alphas=True
+        )
+        is_correct_format = all("lora" in key or "dora_scale" in key for key in state_dict.keys())
+        if not is_correct_format:
+            raise ValueError("Invalid LoRA checkpoint.")
+        
+        print('Start converting the lora ...')
+        lora_sd = convert_diffusers_flux_lora(state_dict, "")
+
+        print('Start combining the model ...')
+        state_dict = MODEL.model.diffusion_model.state_dict()
+        for key, value in state_dict.items():
+            if key in lora_sd:
+                state_dict[key] += lora_sd[key].to(load_device)
+
+        MODEL.model.diffusion_model.load_state_dict(state_dict)
+        
+        return (MODEL,)
+
+class ModelPrinter:
+    
+    RETURN_TYPES = ("MODEL", )
+    RETURN_NAMES = ("MODEL", )
+
+    FUNCTION = "print_model"
+    CATEGORY = "CatvtonFluxWrapper"
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "MODEL": ("MODEL",),
+        },
+    } 
+    
+    def print_model(self, MODEL):
+        state_dict = MODEL.model.diffusion_model.state_dict()
+        for key, value in state_dict.items():
+            print(f"Key: {key}, Shape: {value.shape}")
+        return (MODEL,)
