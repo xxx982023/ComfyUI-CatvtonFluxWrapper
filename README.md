@@ -3,7 +3,9 @@ ComfyUI wrapper of [catvton-flux](https://github.com/nftblackmagic/catvton-flux)
 
 ## workflow preview
 
-The workflows can be found in the examples folder. Models will be automatically downloaded.
+The workflows can be found in the examples folder. If you'd like to automatically download models with diffusers, use `CatvtonFluxWrapper-SAM2.json` or `CatvtonFluxWrapper-draw.json`.
+
+If you'd like more flexibility like using fp8 flux fill model, use `CatvtonLoRA-SAM2.json`.
 
 ### SAM2 segment
 
