@@ -3,6 +3,8 @@ from .nodes import *
 NODE_CONFIG = {
     "LoadCatvtonFlux": {"class": LoadCatvtonFlux, "name": "Load Catvton Flux"},
     "CatvtonFluxSampler": {"class": CatvtonFluxSampler, "name": "Sample Catvton Flux"},
+    "ModelPrinter": {"class": ModelPrinter, "name": "Print Model"},
+    "LoadCatvtonFluxLoRA": {"class": LoadCatvtonFluxLoRA, "name": "Load Catvton Flux LoRA"},
 }
 
 def generate_node_mappings(node_config):
