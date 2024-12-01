@@ -1,11 +1,14 @@
 # ComfyUI-CatvtonFluxWrapper
 ComfyUI wrapper of [catvton-flux](https://github.com/nftblackmagic/catvton-flux)
 
+## Install
+Search `ComfyUI-CatvtonFluxWrapper` in the ComfyUI manager, if cannot find it update ComfyUI-manager node then search again.
+
 ## workflow preview
 
-The workflows can be found in the examples folder. If you'd like to automatically download models with diffusers, use `CatvtonFluxWrapper-SAM2.json` or `CatvtonFluxWrapper-draw.json`.
+The workflows can be found in the `examples` folder. If you'd like to automatically download models with diffusers, use `CatvtonFluxWrapper-SAM2.json` or `CatvtonFluxWrapper-draw.json`.
 
-If you'd like more flexibility like using fp8 flux fill model, use `CatvtonLoRA-SAM2.json`.
+If you'd like more flexibility like using fp8 flux fill model, use `CatvtonLoRA-SAM2.json` or `CatvtonLoRA-Draw.json`.
 
 ### SAM2 segment
 
@@ -19,3 +22,6 @@ If you'd like more flexibility like using fp8 flux fill model, use `CatvtonLoRA-
 
 - CatvtonFluxWrapper-draw.json
 <img width="960" alt="preview" src="https://github.com/user-attachments/assets/8c334427-81d5-4efe-ba11-2dc477b0fc18">
+
+- CatvtonLoRA-Draw.json
+<img width="960" alt="preview" src="https://github.com/user-attachments/assets/f6a051d4-4d68-48a0-9170-368eff2d0443">
