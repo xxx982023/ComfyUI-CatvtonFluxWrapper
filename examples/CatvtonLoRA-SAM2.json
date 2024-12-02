@@ -1,6 +1,6 @@
 {
-  "last_node_id": 69,
-  "last_link_id": 137,
+  "last_node_id": 70,
+  "last_link_id": 139,
   "nodes": [
     {
       "id": 38,
@@ -313,75 +313,6 @@
       ]
     },
     {
-      "id": 31,
-      "type": "UNETLoader",
-      "pos": [
-        -318.68841552734375,
-        -87.26451110839844
-      ],
-      "size": [
-        315,
-        82
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            116
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "UNETLoader"
-      },
-      "widgets_values": [
-        "FLUX1/flux1-fill-dev.safetensors",
-        "default"
-      ]
-    },
-    {
-      "id": 57,
-      "type": "LoadCatvtonFluxLoRA",
-      "pos": [
-        152.6567840576172,
-        -82.4784927368164
-      ],
-      "size": [
-        222.20001220703125,
-        37
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "link": 116
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            137
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadCatvtonFluxLoRA"
-      },
-      "widgets_values": []
-    },
-    {
       "id": 32,
       "type": "VAELoader",
       "pos": [
@@ -393,7 +324,7 @@
         58
       ],
       "flags": {},
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -552,65 +483,6 @@
         "Node name for S&R": "MaskToImage"
       },
       "widgets_values": []
-    },
-    {
-      "id": 3,
-      "type": "KSampler",
-      "pos": [
-        1281.7716064453125,
-        52.16786193847656
-      ],
-      "size": [
-        315,
-        262
-      ],
-      "flags": {},
-      "order": 19,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 137
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 77
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 78
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 88
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            7
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "KSampler"
-      },
-      "widgets_values": [
-        453916687052421,
-        "randomize",
-        20,
-        1,
-        "euler",
-        "normal",
-        1
-      ]
     },
     {
       "id": 8,
@@ -935,7 +807,8 @@
       ],
       "properties": {
         "Node name for S&R": "MaskToImage"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 58,
@@ -961,7 +834,8 @@
       "outputs": [],
       "properties": {
         "Node name for S&R": "PreviewImage"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 50,
@@ -975,7 +849,7 @@
         424.998291015625
       ],
       "flags": {},
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -999,6 +873,137 @@
       "widgets_values": [
         "dress1.png",
         "image"
+      ]
+    },
+    {
+      "id": 31,
+      "type": "UNETLoader",
+      "pos": [
+        -318.68841552734375,
+        -87.26451110839844
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            138
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "FLUX1/flux1-fill-dev.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 70,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        147.8462371826172,
+        -110.10492706298828
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 138
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            139
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "flux/catvton-flux-lora.safetensors",
+        1
+      ]
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        1281.7716064453125,
+        52.16786193847656
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 139
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 77
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 78
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 88
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            7
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        937617280366464,
+        "randomize",
+        30,
+        1,
+        "euler",
+        "normal",
+        1
       ]
     }
   ],
@@ -1140,14 +1145,6 @@
       "MASK"
     ],
     [
-      116,
-      31,
-      0,
-      57,
-      0,
-      "MODEL"
-    ],
-    [
       118,
       63,
       0,
@@ -1228,8 +1225,16 @@
       "IMAGE"
     ],
     [
-      137,
-      57,
+      138,
+      31,
+      0,
+      70,
+      0,
+      "MODEL"
+    ],
+    [
+      139,
+      70,
       0,
       3,
       0,
@@ -1240,10 +1245,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.3855432894295318,
+      "scale": 0.385543289429532,
       "offset": [
-        1427.4146855980503,
-        195.23235117649443
+        1335.0790990594521,
+        214.15285238786126
       ]
     }
   },
