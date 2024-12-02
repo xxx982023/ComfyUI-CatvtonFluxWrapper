@@ -8,7 +8,7 @@ Search `ComfyUI-CatvtonFluxWrapper` in the ComfyUI manager, if cannot find it up
 
 The workflows can be found in the `examples` folder.
 
-If you'd like more flexibility like using fp8 flux fill model, use `CatvtonLoRA-SAM2.json` or `CatvtonLoRA-Draw.json`. If you'd like to automatically download models with diffusers, use `CatvtonFluxWrapper-SAM2.json` or `CatvtonFluxWrapper-draw.json` (Not recommended though because of slow downloading of large models).
+If you'd like more flexibility like using fp8 flux fill model, use `CatvtonLoRA-SAM2.json` or `CatvtonLoRA-Draw.json`. If you'd like to automatically download models with diffusers, use `CatvtonFluxWrapper-SAM2.json` or `CatvtonFluxWrapper-draw.json` (Not recommended though because of slow downloading of large models for first running).
 
 ### SAM2 segment
 
