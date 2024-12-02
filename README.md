@@ -5,15 +5,15 @@ ComfyUI wrapper of [catvton-flux](https://github.com/nftblackmagic/catvton-flux)
 
 The workflows can be found in the `examples` folder.
 
-If you'd like more flexibility like using fp8 flux fill model, use `CatvtonLoRA-SAM2.json` or `CatvtonLoRA-Draw.json`. If you'd like to automatically download models with diffusers, use `CatvtonFluxWrapper-SAM2.json` or `CatvtonFluxWrapper-draw.json`.
+If you'd like more flexibility like using fp8 flux fill model, use `CatvtonLoRA-SAM2.json` or `CatvtonLoRA-Draw.json`. You can download the LoRA [here](https://huggingface.co/xiaozaa/catvton-flux-lora-alpha).
 
-If you go with `CatvtonFluxWrapper-SAM2.json` or `CatvtonFluxWrapper-draw.json,` you may have to do the below BEFORE you start ComfyUI.
+If you'd like to automatically download all models with diffusers, use `CatvtonFluxWrapper-SAM2.json` or `CatvtonFluxWrapper-draw.json`, but You may have to set up a huggingface token BEFORE you start ComfyUI.
 - Go to `https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev`
 - Accept FLUX policy
 - Get a huggingface token for your account in settings->Access Tokens
 - Set environment variable `set HF_TOKEN=PUT-YOUR-TOKEN-HERE` and `set HUGGING_FACE_HUB_TOKEN=PUT-YOUR-TOKEN-HERE`, thanks to [raymondgp](https://github.com/raymondgp).
 
-Then you are safe to start ComfyUI; search `ComfyUI-CatvtonFluxWrapper` in the ComfyUI manager and install it; if you cannot find it update the ComfyUI-manager node, then search again.
+Then you are safe to start ComfyUI; search `ComfyUI-CatvtonFluxWrapper` in the ComfyUI manager and install it; if you cannot find it, update the ComfyUI-manager node, then search again.
 
 ## workflow preview
 
