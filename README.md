@@ -1,9 +1,6 @@
 # ComfyUI-CatvtonFluxWrapper
 ComfyUI wrapper of [catvton-flux](https://github.com/nftblackmagic/catvton-flux)
 
-## Install
-Search `ComfyUI-CatvtonFluxWrapper` in the ComfyUI manager, if cannot find it update ComfyUI-manager node then search again.
-
 ## workflow usage
 
 The workflows can be found in the `examples` folder.
@@ -15,6 +12,8 @@ If you go with `CatvtonFluxWrapper-SAM2.json` or `CatvtonFluxWrapper-draw.json,`
 - Accept FLUX policy
 - Get a huggingface token for your account in settings->Access Tokens
 - Set environment variable `set HF_TOKEN=PUT-YOUR-TOKEN-HERE` and `set HUGGING_FACE_HUB_TOKEN=PUT-YOUR-TOKEN-HERE`, thanks to [raymondgp](https://github.com/raymondgp).
+
+Then you are safe to start ComfyUI; search `ComfyUI-CatvtonFluxWrapper` in the ComfyUI manager and install it; if you cannot find it update the ComfyUI-manager node, then search again.
 
 ## workflow preview
 
