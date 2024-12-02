@@ -8,7 +8,13 @@ Search `ComfyUI-CatvtonFluxWrapper` in the ComfyUI manager, if cannot find it up
 
 The workflows can be found in the `examples` folder.
 
-If you'd like more flexibility like using fp8 flux fill model, use `CatvtonLoRA-SAM2.json` or `CatvtonLoRA-Draw.json`. If you'd like to automatically download models with diffusers, use `CatvtonFluxWrapper-SAM2.json` or `CatvtonFluxWrapper-draw.json` (Not recommended though because of slow downloading of large models for first running).
+If you'd like more flexibility like using fp8 flux fill model, use `CatvtonLoRA-SAM2.json` or `CatvtonLoRA-Draw.json`. If you'd like to automatically download models with diffusers, use `CatvtonFluxWrapper-SAM2.json` or `CatvtonFluxWrapper-draw.json`.
+
+If you go with `CatvtonFluxWrapper-SAM2.json` or `CatvtonFluxWrapper-draw.json`, you may have to 
+- Go to `https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev`
+- Accept FLUX policy
+- Get a huggingface token for your account in settings->Access Tokens
+- Set environment variable `set HF_TOKEN=PUT-YOUR-TOKEN-HERE` and `set HUGGING_FACE_HUB_TOKEN=PUT-YOUR-TOKEN-HERE`, thanks to [raymondgp](https://github.com/raymondgp).
 
 ### SAM2 segment
 
