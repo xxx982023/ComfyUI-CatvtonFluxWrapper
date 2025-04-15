@@ -30,7 +30,7 @@ class LoadCatvtonFlux:
 
         print("Start loading LoRA weights")
         state_dict, network_alphas = FluxFillPipeline.lora_state_dict(
-            pretrained_model_name_or_path_or_dict="xiaozaa/catvton-flux-lora-alpha",     ## The tryon Lora weights
+            pretrained_model_name_or_path_or_dict="/runpod-volume/huggingface/xiaozaa/catvton-flux-lora-alpha",     ## The tryon Lora weights
             weight_name="pytorch_lora_weights.safetensors",
             return_alphas=True
         )
@@ -39,7 +39,7 @@ class LoadCatvtonFlux:
             raise ValueError("Invalid LoRA checkpoint.")
         print('Loading diffusion model ...')
         pipe = FluxFillPipeline.from_pretrained(
-            "/runpod-volume/huggingface/FLUX.1-Fill-dev",  # Local path to base model"
+            "/runpod-volume/huggingface/black-forest-labs/FLUX.1-Fill-dev",
             torch_dtype=torch.bfloat16
         ).to(load_device)
         FluxFillPipeline.load_lora_into_transformer(
