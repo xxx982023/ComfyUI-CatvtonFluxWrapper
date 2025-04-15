@@ -39,7 +39,7 @@ class LoadCatvtonFlux:
             raise ValueError("Invalid LoRA checkpoint.")
         print('Loading diffusion model ...')
         pipe = FluxFillPipeline.from_pretrained(
-            "./huggingface/FLUX.1-Fill-dev",  # Local path to base model"
+            "/runpod-volume/huggingface/FLUX.1-Fill-dev",  # Local path to base model"
             torch_dtype=torch.bfloat16
         ).to(load_device)
         FluxFillPipeline.load_lora_into_transformer(
